@@ -1,0 +1,47 @@
+body {
+    background-image: url('asset/images/back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: auto;
+    animation: fadeIn 2s ease;
+}
+
+#build_buy {
+    font-size: 40px;
+    font-weight: 400;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.img_house {
+    transition: transform 0.3s ease;
+    width: 60%;
+}
+
+.main_div {
+    height: 100vh;
+}
+
+ul li:hover {
+    border-left: 1px solid red;
+}
+
+.tpb {
+    text-decoration: none;
+    box-sizing: border-box;
+    color: black;
+}
+
+.img_house:hover {
+    transform: scale(1.1);
+}
