@@ -6,3 +6,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.home');
 });
+Route::get('/hire', function () {
+    return view('pages.hire');
+});
