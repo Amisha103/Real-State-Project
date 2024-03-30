@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toplkapi Builders-TPB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link href="{{ asset('css/home.css') }}" rel="stylesheet"> -->
     <!-- @push('css')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
@@ -17,6 +18,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            overflow: auto;
+            background-color: black;
+        }
+
+        a {
+            text-decoration: none;
         }
 
         #build_buy {
@@ -78,7 +85,23 @@
         }
 
         /* ---------------into part ends------------------ */
+        /* ------------navbar edits-------------------------- */
+        .text-white.dropdown-menu.bg-transparent li a:hover {
+            background-color: black;
+        }
 
+        .dropdown-menu {
+            backdrop-filter: blur(18px) !important;
+            background-color: rgba(10, 10, 10, 0.4) !important;
+        }
+
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(2px);
+        }
+
+        /* ------------navbar edits ends-------------------------- */
+        /* ---------------about part-------------------------------- */
         .second_div {
             height: 100vh;
             background-color: black;
@@ -98,6 +121,32 @@
             background-color: gray !important;
             border-color: #ffc107 !important;
         }
+
+        /* ---------------about part ends-------------------------------- */
+        /* -----------------footer parts----------------------------- */
+
+        .footer_div {
+            height: 50vh;
+            background-color: #23798a;
+        }
+
+        .footer_footer_div {
+            height: 8vh;
+            background-color: #131720;
+        }
+
+        .logos i:hover {
+            color: #001c40 !important;
+            transition: all 0.2s ease-in;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .for_small {
+                font-size: 13px;
+            }
+        }
+
+        /* -----------------footer parts----------------------------- */
     </style>
 
 </head>
@@ -117,18 +166,18 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="text-white nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="text-white nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item dropdown"> <!-- Added dropdown class to the list item -->
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
-                            <ul class="text-white dropdown-menu bg-white text-light" aria-labelledby="pagesDropdown"> <!-- Dropdown menu content -->
-                                <li><a class="dropdown-item" href="#">Page 1</a></li>
-                                <li><a class="dropdown-item" href="#">Page 2</a></li>
-                                <li><a class="dropdown-item" href="#">Page 3</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
+                            <ul class="text-white dropdown-menu bg-transparent" aria-labelledby="pagesDropdown">
+                                <li><a class=" text-white dropdown-item" href="#">See Properties</a></li>
+                                <li><a class=" text-white dropdown-item" href="#">Buy Properties</a></li>
+                                <li><a class=" text-white dropdown-item" href="#">Blogs</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">About us</a>
+                            <a class="nav-link text-white" href="#about_us">About us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Contact</a>
@@ -181,8 +230,4 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</body>
-
-</html>
+    
