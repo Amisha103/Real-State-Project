@@ -18,6 +18,10 @@
             background-color: rgba(10, 10, 10, 0.4) !important;
         }
 
+        /* .custom_act {
+            border-left: 1px solid red;
+        } */
+
         ul li:hover {
             border-left: 1px solid red;
             transition: all 0.15s ease-in;

@@ -87,6 +87,10 @@
             background-color: black;
         }
 
+        /* .custom_act {
+            border-left: 1px solid red;
+        } */
+
         ul li:hover {
             border-left: 1px solid red;
         }
