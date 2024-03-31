@@ -163,8 +163,6 @@
             }
         }
 
-
-
         .forms .form-text {
             transition: opacity 0.3s ease;
         }
