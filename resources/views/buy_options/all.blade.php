@@ -142,6 +142,7 @@
             height: 150px;
             overflow: auto;
         }
+
         /* --------------------main action----------------------------------- */
     </style>
 </head>
@@ -152,14 +153,14 @@
         <div class="row text-dark">
             @foreach ($allData as $data)
             <div class="col-md-6">
-                <div class="card">
+                <div class="card bg-transparent text-white">
                     <img src="{{ $data->image }}" class="card-img-top">
-                    <div class="card-body">
-                        <div class="details">
+                    <div class="card-body card_body">
+                        <div class="details border border-secondary rounded">
                             <h5 class="card-title">{{ $data->details }}</h5>
                         </div>
-                        <p class="card-text">Address: {{ $data->address }}</p>
-                        <p class="card-text">Mobile : {{ $data->mobile_number }}</p>
+                        <div class="card-text">Address: {{ $data->address }}</div>
+                        <div class="card-text text-center">Mobile : {{ $data->mobile_number }}</div>
                         <div class="quantity mt-3">
                             <button class="btn btn-primary btn-sm mr-2 decrement" data-id="{{ $data->id }}">-</button>
                             <input type="text" class="form-control quantity-input" value="1" readonly>
@@ -196,7 +197,6 @@
                 var id = $(this).data('id');
                 var quantity = $(this).parent().find('.quantity-input').val();
                 console.log("Product ID:", id, "Quantity:", quantity);
-                // Here you can perform an AJAX request to add the product to the cart
             });
         });
     </script>

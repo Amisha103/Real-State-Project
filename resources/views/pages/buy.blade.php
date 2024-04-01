@@ -13,6 +13,11 @@
             padding: 0;
             box-sizing: border-box;
             background-color: black;
+            background-image: url('asset/images/buy_back.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: auto;
         }
 
         a {
@@ -96,20 +101,28 @@
             cursor: pointer;
         }
 
+        .table tr:hover {
+            color: #8da6f0;
+        }
+
+        .bg-transparent {
+            backdrop-filter: blur(7px);
+        }
+
         /* --------------------buy div ends-------------------------------- */
     </style>
 </head>
 
 
-<body class="bg-dark">
+<body>
 
     <div class="container">
         @include("layouts.navbar")
         <div class="container col-md-12 col-sm-8 buy_div">
             <div class="row mb-4">
-                <div class="col-md-3 bg-primary" style="height: 400px;">
+                <div class="col-md-3 bg-transparent shadow border rounded" style="height: 400px;">
                     <div class="container">
-                        <table class="table table-border shadow mt-3 fs-5 text-light table-hover">
+                        <table class="table table-border shadow mt-3 fs-5 text-light shadow">
                             <tbody>
                                 <tr data-option="all">
                                     <td class="d-flex justify-content-between align-items-center">
