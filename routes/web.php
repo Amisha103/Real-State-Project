@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SeeController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\OptionController;
+use App\Http\Controllers\AllDataController;
 
 
 Route::view('/hire', 'pages.hire')->name('hire');
@@ -16,3 +17,5 @@ Route::get('/buy', [BuyController::class, 'index'])->name('buy');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
 Route::get('/get-option', [OptionController::class, 'getOption'])->name('getOption');
+
+Route::get('/get-all-data', [AllDataController::class, 'getAllData'])->name('getAllData');

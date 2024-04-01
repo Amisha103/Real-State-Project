@@ -92,18 +92,22 @@
             color: white;
         }
 
+        tr {
+            cursor: pointer;
+        }
+
         /* --------------------buy div ends-------------------------------- */
     </style>
 </head>
 
 
-<body>
+<body class="bg-dark">
 
-    <div>
+    <div class="container">
         @include("layouts.navbar")
         <div class="container col-md-12 col-sm-8 buy_div">
             <div class="row mb-4">
-                <div class="col-md-3 bg-primary">
+                <div class="col-md-3 bg-primary" style="height: 400px;">
                     <div class="container">
                         <table class="table table-border shadow mt-3 fs-5 text-light table-hover">
                             <tbody>
@@ -135,32 +139,34 @@
                         </table>
                     </div>
                 </div>
-                <div class="col-md-9 bg-warning show_option" style="height: 100px;">
-                    <h1 class="text-center text-dark">Title dynamic</h1>
+
+                <div class="container col-md-9 show_option">
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-                $('tr[data-option]').on('click', function() {
-                    var option = $(this).data('option');
-                    $.ajax({
-                        url: "{{ route('getOption') }}",
-                        type: "GET",
-                        data: {
-                            option: option
-                        },
-                        success: function(response) {
-                            $('.show_option').html(response);
-                        },
-                        error: function(xhr) {
-                            console.log(xhr.responseText);
-                        }
-                    });
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('tr[data-option]').on('click', function() {
+                var option = $(this).data('option');
+                $.ajax({
+                    url: "{{ route('getOption') }}",
+                    type: "GET",
+                    data: {
+                        option: option
+                    },
+                    success: function(response) {
+                        $('.show_option').html(response);
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
                 });
             });
-        </script>
+        });
+    </script>
 
-        @include("layouts.footer")
+    @include("layouts.footer")

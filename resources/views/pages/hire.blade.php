@@ -88,6 +88,7 @@
         }
 
         .form_div {
+            animation: fadeInUp 1.5s ease forwards;
             position: relative;
             height: 100vh;
             width: 100%;
@@ -98,6 +99,19 @@
             overflow: auto;
             animation: fadeIn 2s ease;
             padding-top: 86px;
+        }
+
+        /* Animation for form_div */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-200px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .submit_button {
@@ -115,23 +129,6 @@
             border-radius: 8px;
             background-color: white;
             color: black;
-        }
-
-        /* Animation for form_div */
-        .form_div {
-            animation: fadeInUp 1.5s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(-200px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .forms input,

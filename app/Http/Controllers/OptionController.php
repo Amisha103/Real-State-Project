@@ -12,7 +12,7 @@ class OptionController extends Controller
         // Return the view content based on the selected option
         switch ($option) {
             case 'all':
-                return view('buy_options.all');
+                return redirect()->route('getAllData');
             case 'available_sales':
                 return view('buy_options.available_sales');
             case 'flat_for_sale':
