@@ -25,7 +25,7 @@
         background-color: black;
     }
 
-    .custom-active-link.active{
+    .custom-active-link.active {
         background-color: #6e0505;
     }
 
@@ -93,7 +93,5 @@
 
     <div>
         @include("layouts.navbar")
-        <div>
-
-        </div>
+       
         @include("layouts.footer")
