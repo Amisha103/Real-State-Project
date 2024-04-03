@@ -14,11 +14,11 @@ class OptionController extends Controller
             case 'all':
                 return redirect()->route('getAllData');
             case 'available_sales':
-                return view('buy_options.available_sales');
+                return redirect()->route('getAvailableData');
             case 'flat_for_sale':
-                return view('buy_options.flat_for_sale');
+                return redirect()->route('FlatSaleData');
             case 'land_for_sale':
-                return view('buy_options.land_for_sale');
+                return redirect()->route('LandSale');
             default:
                 return "Invalid option";
         }

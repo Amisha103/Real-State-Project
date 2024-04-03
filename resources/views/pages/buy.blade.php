@@ -109,6 +109,24 @@
             backdrop-filter: blur(7px);
         }
 
+        .show_option {
+            animation: fade 2s ease-in;
+        }
+
+        @keyframes fade {
+
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
         /* --------------------buy div ends-------------------------------- */
     </style>
 </head>

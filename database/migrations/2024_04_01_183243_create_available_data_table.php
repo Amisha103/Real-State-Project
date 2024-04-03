@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('all_data', function (Blueprint $table) {
+        Schema::create('available_data', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('owner_name');
             $table->string('type');
             $table->string('details');
+            $table->string('owner_name');
             $table->string('address');
-            $table->string('mobile_number');
+            $table->string('mobile');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('all_data');
+        Schema::dropIfExists('available_data');
     }
 };

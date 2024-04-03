@@ -143,6 +143,24 @@
             overflow: auto;
         }
 
+        .all_main_div {
+            animation: fade 1.3s ease-in;
+        }
+
+        @keyframes fade {
+
+            from {
+                opacity: 0;
+                transform: translateX(-500px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
         /* --------------------main action----------------------------------- */
     </style>
 </head>
@@ -159,7 +177,9 @@
                         <div class="details border border-secondary rounded">
                             <h5 class="card-title">{{ $data->details }}</h5>
                         </div>
-                        <div class="card-text">Address: {{ $data->address }}</div>
+                        <div class="card-text text-center">Type: {{ $data->type }}</div>
+                        <div class="card-text text-center">Owner Name: {{ $data->owner_name }}</div>
+                        <div class="card-text text-center">Address: {{ $data->address }}</div>
                         <div class="card-text text-center">Mobile : {{ $data->mobile_number }}</div>
                         <div class="quantity mt-3">
                             <button class="btn btn-primary btn-sm mr-2 decrement" data-id="{{ $data->id }}">-</button>
@@ -174,7 +194,6 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -200,7 +219,7 @@
             });
         });
     </script>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('tr[data-option]').on('click', function() {
                 var option = $(this).data('option');
@@ -219,7 +238,7 @@
                 });
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
