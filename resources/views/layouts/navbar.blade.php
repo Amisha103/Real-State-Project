@@ -8,13 +8,10 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="custom_act text-white nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="text-white nav-link" aria-current="page" href="/">Home</a>
-                </li> -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
                     <ul class="text-white dropdown-menu bg-transparent" aria-labelledby="pagesDropdown">
@@ -44,6 +41,11 @@
 
             </ul>
         </div>
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/cart"><i class="fa-solid fa-cart-plus fs-5"></i></a>
+            </li>
+        </ul>
 
     </div>
 </nav>

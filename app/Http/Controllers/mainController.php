@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Cart;
 
 class mainController extends Controller
 {
@@ -34,6 +35,10 @@ class mainController extends Controller
     {
         return view('pages.login');
     }
+    public function cart()
+    {
+        return view('pages.cart');
+    }
     public function register()
     {
         return view('pages.register');
@@ -43,5 +48,17 @@ class mainController extends Controller
         session()->forget('id');
         session()->forget('type');
         return view('pages.home');
+    }
+    public function addToCart(Request $data)
+    {
+        if (session()->has('id')) {
+            $item = new Cart;
+            $item->productId = $data->input('productId');
+            $item->quantity = $data->input('quantity');
+            $item->type = $data->input('type');
+            $item->customerId = session()->has('id');
+            $item->save();
+            return redirect()->back()->with('success', 'item added to cart!');
+        } else  return redirect('/login-user')->with('fail', 'Login to your account fisrt!');
     }
 }

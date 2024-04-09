@@ -20,8 +20,6 @@
         </div>
         <div class="d-flex container col-md-12 justify-content-end mt-4 col-sm-6">
             <button class="fs-5 btn btn-outline-dark text-light">Admin Login</button>
-            <span style="margin-left: 10px;"></span>
-            <button class="fs-5 btn btn-outline-dark text-light">Register</button>
         </div>
 
     </div>

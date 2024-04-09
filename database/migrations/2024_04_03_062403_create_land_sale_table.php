@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('details');
             $table->string('owner_name');
+            $table->string('type');
             $table->string('address');
             $table->string('mobile');
             $table->timestamps();

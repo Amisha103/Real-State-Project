@@ -138,7 +138,7 @@
 
 <body>
     <div class="all_main_div">
-        <h1 class="mb-4 text-center mt-3">Flats For Sale</h1>
+        <h1 class="mb-4 text-center mt-3">Available Lands & Flats</h1>
         <div class="row text-dark">
             @foreach($availableData as $data)
             <div class="col-md-6">
@@ -152,12 +152,17 @@
                         <div class="card-text text-center">Owner Name: {{ $data->owner_name }}</div>
                         <div class="card-text text-center">Address: {{ $data->address }}</div>
                         <div class="card-text text-center">Mobile : {{ $data->mobile_number }}</div>
-                        <div class="quantity mt-3">
-                            <button class="btn btn-primary btn-sm mr-2 decrement" data-id="{{ $data->id }}">-</button>
-                            <input type="text" class="form-control quantity-input" value="1" readonly>
-                            <button class="btn btn-primary btn-sm ml-2 increment" data-id="{{ $data->id }}">+</button>
-                        </div>
-                        <button class="btn btn-success btn-block mt-3 col-md-12 add-to-cart" data-id="{{ $data->id }}">Add to Cart</button>
+                        <form action="{{URL::to('addToCart')}}" method="POST">
+                            @csrf
+                            <div class="quantity mt-3">
+                                <button type="button" class="btn btn-primary btn-sm mr-2 decrement">-</button>
+                                <input type="text" class="form-control quantity-input" name="quantity" value="1" readonly>
+                                <button type="button" class="btn btn-primary btn-sm ml-2 increment">+</button>
+                            </div>
+                            <input type="hidden" name="productId" value="{{$data->id}}">
+                            <input type="hidden" name="type" value="{{$data->type}}">
+                            <button type="submit" name="addToCart" class="btn btn-success btn-block mt-3 col-md-12">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
             </div>
