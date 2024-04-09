@@ -29,6 +29,19 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="/hire">Hire Us</a>
                 </li>
+                @if(session()->has('id'))
+                <li class="nav-item justify-content-end">
+                    <a class="nav-link text-white" href="/logout">Logout</a>
+                </li>
+                @else
+                <li class="nav-item justify-content-end">
+                    <a class="nav-link text-white" href="/login-user">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/register-user">Register</a>
+                </li>
+                @endif
+
             </ul>
         </div>
 

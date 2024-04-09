@@ -159,7 +159,7 @@
             $('.increment').on('click', function() {
                 var input = $(this).prev();
                 var newValue = parseInt(input.val()) + 1;
-                if (newValue <= 3)
+                if (newValue <= 2)
                     input.val(newValue);
             });
 

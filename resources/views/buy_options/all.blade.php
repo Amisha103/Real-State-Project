@@ -1,45 +1,3 @@
-<!-- resources/views/all.blade.php
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Data</title>
-</head>
-
-<body>
-    <h1>All Data</h1>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Details</th>
-                <th>Address</th>
-                <th>Mobile Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($allData as $data)
-            <tr>
-                <td><img src="{{ $data->image }}" alt="Image"></td>
-                <td>{{ $data->details }}</td>
-                <td>{{ $data->address }}</td>
-                <td>{{ $data->mobile_number }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</body>
-
-</html> -->
-
-
-<!-- resources/views/all.blade.php -->
-
-<!-- resources/views/all.blade.php -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,7 +79,7 @@
         }
 
         /* -----------------footer part ends----------------------------- */
-        /* --------------------main action----------------------------------- */
+        /* --------------------main section starts----------------------------------- */
 
         .card {
             margin-bottom: 20px;
@@ -161,11 +119,12 @@
 
         }
 
-        /* --------------------main action----------------------------------- */
+        /* --------------------main section ends----------------------------------- */
     </style>
 </head>
 
 <body>
+
     <div class="all_main_div">
         <h1 class="mb-4 text-center mt-3">Lands & Flats</h1>
         <div class="row text-dark">
@@ -182,11 +141,11 @@
                         <div class="card-text text-center">Address: {{ $data->address }}</div>
                         <div class="card-text text-center">Mobile : {{ $data->mobile_number }}</div>
                         <div class="quantity mt-3">
-                            <button class="btn btn-primary btn-sm mr-2 decrement" data-id="{{ $data->id }}">-</button>
-                            <input type="text" class="form-control quantity-input" value="1" readonly>
-                            <button class="btn btn-primary btn-sm ml-2 increment" data-id="{{ $data->id }}">+</button>
+                            <button type="button" class="btn btn-primary btn-sm mr-2 decrement">-</button>
+                            <input type="text" class="form-control quantity-input" name="quantity" value="1" readonly>
+                            <button type="button" class="btn btn-primary btn-sm ml-2 increment">+</button>
                         </div>
-                        <button class="btn btn-success btn-block mt-3 col-md-12 add-to-cart" data-id="{{ $data->id }}">Add to Cart</button>
+                        <button type="submit" class="btn btn-success btn-block mt-3 col-md-12">Add to Cart</button>
                     </div>
                 </div>
             </div>
@@ -200,7 +159,7 @@
             $('.increment').on('click', function() {
                 var input = $(this).prev();
                 var newValue = parseInt(input.val()) + 1;
-                if (newValue <= 3)
+                if (newValue <= 2)
                     input.val(newValue);
             });
 
@@ -217,28 +176,28 @@
                 var quantity = $(this).parent().find('.quantity-input').val();
                 console.log("Product ID:", id, "Quantity:", quantity);
             });
+
+            // $('.add-to-cart-form').on('submit', function(event) {
+            //     event.preventDefault();
+            //     var form = $(this);
+            //     var formData = form.serialize();
+            //     $.ajax({
+            //         type: "POST",
+            //         url: form.attr('action'),
+            //         data: formData,
+            //         success: function(response) {
+            //             // Handle success response
+            //             console.log("Item added to cart successfully");
+            //         },
+            //         error: function(xhr, status, error) {
+            //             // Handle error
+            //             console.error(error);
+            //         }
+            //     });
+            // });
+
         });
     </script>
-    <!-- <script>
-        $(document).ready(function() {
-            $('tr[data-option]').on('click', function() {
-                var option = $(this).data('option');
-                $.ajax({
-                    url: "{{ route('getOption') }}",
-                    type: "GET",
-                    data: {
-                        option: option
-                    },
-                    success: function(response) {
-                        $('.show_option').html(response);
-                    },
-                    error: function(xhr) {
-                        console.log(xhr.responseText);
-                    }
-                });
-            });
-        });
-    </script> -->
 </body>
 
 </html>
