@@ -119,6 +119,7 @@
                     <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password">
                 </div>
                 <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
+                <a type="submit" href="/register-user" class="mt-3 btn btn-primary w-100">Register</a>
             </form>
         </div>
 

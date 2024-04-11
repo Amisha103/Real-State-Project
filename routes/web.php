@@ -29,6 +29,7 @@ Route::get('/register-user', [mainController::class, 'register'])->name('registe
 Route::get('/login-user', [mainController::class, 'login'])->name('login');
 Route::get('/logout', [mainController::class, 'logout'])->name('logout');
 Route::get('/cart', [mainController::class, 'cart'])->name('cart');
+Route::get('/deleteCartItem/{id}', [mainController::class, 'deleteCartItem'])->name('deleteCartItem');
 Route::post('/registerUser', [mainController::class, 'registerUser'])->name('registerUser');
 Route::post('/loginUser', [mainController::class, 'loginUser'])->name('loginUser');
 Route::post('/addToCart', [mainController::class, 'addToCart'])->name('addToCart');

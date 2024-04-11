@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('available_data', function (Blueprint $table) {
-            $table->id();
+            $table->bigIntegerid();
             $table->string('image');
             $table->string('type');
             $table->string('details');
             $table->string('owner_name');
             $table->string('address');
-            $table->string('mobile');
+            $table->string('mobile_number');
             $table->timestamps();
         });
+
+        // DB::statement("ALTER TABLE available_data AUTO_INCREMENT = 100;");
     }
 
     /**

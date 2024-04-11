@@ -9,5 +9,5 @@ class LandForSale extends Model
 {
     protected $table = 'land_sale_table';
 
-    protected $fillable = ['image', 'details', 'owner_name', 'address', 'mobile'];
+    protected $fillable = ['image', 'details', 'owner_name', 'address', 'mobile_number'];
 }
