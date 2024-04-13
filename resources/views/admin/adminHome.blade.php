@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TPB-Blog Post</title>
+    <title>TPB-Admin</title>
 </head>
 <style>
     body {
@@ -138,15 +138,15 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Contact Request</td>
+                        <td><a href="/contacts">Contact Request</a></td>
                         <td>Requests from potential clients to contact</td>
                     </tr>
                     <tr>
-                        <td> <a href="/update-blog">Blogs</a></td>
+                        <td> <a href="/blogs">Blogs</a></td>
                         <td>Articles and posts related to real estate</td>
                     </tr>
                     <tr>
-                        <td>All Sales</td>
+                        <td> <a href="/all-property-admin">All Sales</a></td>
                         <td>All properties currently listed for sale</td>
                     </tr>
                     <tr>

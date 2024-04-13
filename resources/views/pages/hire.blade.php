@@ -177,7 +177,7 @@
 
         @include("layouts.navbar")
 
-        <div class="container-fluid">
+        <div class="container">
             <div>
                 <p class="fs-1 col-12 text-white d-flex justify-content-center">Get In Touch</p>
             </div>
@@ -185,26 +185,32 @@
                 <p class="fs-6 col-12 text-white d-flex justify-content-center">[Leave a message, we will contact you.]</p>
             </div>
         </div>
+        @if(session()->has('success'))
+        <div class="alert container alert-success">
+            <p>{{session()->get('success')}}</p>
+        </div>
+        @endif
 
         <div class="container forms">
-            <form>
+            <form action="{{URL::to('addinfo')}}" method="POST">
+                @csrf
                 <div class="mb-3 col-md-12">
                     <label for="name" class="form-label text-light">Your Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label text-light">Your Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label text-light">Message (Maximum 100 words)</label>
-                    <textarea class="form-control" id="message" rows="5" maxlength="250" placeholder="Enter your message" required></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="5" maxlength="250" placeholder="Enter your message" required></textarea>
                     <small class="form-text text-muted">Words left: <span id="wordCount">100</span></small>
                 </div>
+                <div class="submit_button_div d-flex justify-content-center">
+                    <button name="addinfo" type="submit" class="border border-warning submit_button col-3 text-center">Submit</button>
+                </div>
             </form>
-            <div class="submit_button_div d-flex justify-content-center">
-                <a class="border border-warning submit_button col-3 text-center">Submit</a>
-            </div>
         </div>
     </div>
 

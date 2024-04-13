@@ -7,11 +7,11 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\AllDataController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\getAvailableController;
 use App\Http\Controllers\FlatForSaleController;
 use App\Http\Controllers\LandForSaleController;
 use App\Http\Controllers\mainController;
-use App\Http\Controllers\PostBlogController;
 
 Route::view('/hire', 'pages.hire')->name('hire');
 Route::view('/', 'pages.home');
@@ -37,11 +37,19 @@ Route::post('/loginUser', [mainController::class, 'loginUser'])->name('loginUser
 Route::post('/addToCart', [mainController::class, 'addToCart'])->name('addToCart');
 
 // ---------------------------admin------------------------------
+
 Route::get('/admin-login', [AdminPanelController::class, 'index'])->name('index');
 Route::get('/update-blog', [AdminPanelController::class, 'UpdateBlog'])->name('UpdateBlog');
 Route::get('/admin-register', [AdminPanelController::class, 'adminRegister'])->name('adminRegister');
 Route::post('/adminRegisterUser', [AdminPanelController::class, 'adminRegisterUser'])->name('adminRegisterUser');
 Route::post('/AdminLoginUser', [AdminPanelController::class, 'AdminLoginUser'])->name('AdminLoginUser');
 
-Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
-Route::delete('/blogs/{id}', [BlogController::class, 'delete'])->name('blogs.delete');
+Route::get('/blogs', [BlogController::class, 'indexUpdate'])->name('blogs.indexUpdate');
+Route::get('/blogs/{id}', [BlogController::class, 'delete'])->name('blogs.delete');
+
+Route::get('/contacts', [ContactController::class, 'index'])->name('index');
+Route::get('/contacts-delete/{id}', [ContactController::class, 'delete'])->name('delete');
+Route::post('/addinfo', [ContactController::class, 'addinfo'])->name('addinfo');
+
+Route::get('/all-property-admin', [AllDataController::class, 'index'])->name('index');
+Route::get('/delete/{id}', [AllDataController::class, 'delete'])->name('delete');
