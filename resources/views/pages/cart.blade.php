@@ -97,53 +97,6 @@
 </style>
 
 <body>
-
-    <!-- <div class="cart_class text-white">
-        @include("layouts.navbar")
-        <div class="container">
-            <h1 class="text-center mb-4 mt-4">Cart Items</h1>
-            @if(session()->has('success'))
-            <div class="alert alert-success">
-                {{session()->get('success')}}
-            </div>
-            @endif
-            <div class="table-responsive">
-                <table class="table table-hover text-white">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Details</th>
-                            <th>Type</th>
-                            <th>Mobile Number</th>
-                            <th>Quantity</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($allCartItems as $item)
-                        <tr>
-                            <td><img src="" alt="" style="max-width: 100px;"></td>
-                            <td>{{ $item->details }}</td>
-                            <td>{{ $item->type }}</td>
-                            <td>{{ $item->mobile_number }}</td>
-                            <td>
-                                <div class="input-group">
-                                    <input type="number" class="form-control bg-dark text-white" value="{{ $item->quantity }}" min="1" max="3">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary update-quantity" data-id="{{ $item->id }}">Update</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <a type="button" href="{{URL::to('deleteCartItem/'.$item->id)}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div> -->
     <div class="cart_class text-white">
         @include("layouts.navbar")
         <div class="container">

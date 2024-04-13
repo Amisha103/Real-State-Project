@@ -15,7 +15,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
                     <ul class="text-white dropdown-menu bg-transparent" aria-labelledby="pagesDropdown">
-                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('see') ? 'active' : '' }}" href="{{ route('see') }}">See Properties</a></li>
                         <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('buy') ? 'active' : '' }}" href="{{ route('buy') }}">Buy Properties</a></li>
                         <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('blog') ? 'active' : '' }}" href="{{ route('blog') }}">Blogs</a></li>
                     </ul>
@@ -27,6 +26,9 @@
                     <a class="nav-link text-white" href="/hire">Hire Us</a>
                 </li>
                 @if(session()->has('id'))
+                <li class="nav-item justify-content-end">
+                    <a class="nav-link text-white" href="/post">Post</a>
+                </li>
                 <li class="nav-item justify-content-end">
                     <a class="nav-link text-white" href="/logout">Logout</a>
                 </li>

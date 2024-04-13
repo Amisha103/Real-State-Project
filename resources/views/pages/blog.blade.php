@@ -184,7 +184,7 @@
                             <h5 class="card-title fs-3">{{ $blog->title }}</h5>
                             <p class="card-text fs-5">{{ $blog->content }}</p>
                             @if ($blog->created_at)
-                            <p class="card-text text-dark"><small>Posted on {{ $blog->created_at->format('F j, Y \a\t h:i A') }}</small></p>
+                            <p class="card-text"><small>Posted on {{ $blog->created_at->format('F j, Y \a\t h:i A') }}</small></p>
                             @else
                             <p class="card-text"><small>No creation date available</small></p>
                             @endif

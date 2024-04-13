@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -36,6 +37,10 @@ class mainController extends Controller
     public function login()
     {
         return view('pages.login');
+    }
+    public function post()
+    {
+        return view('pages.post');
     }
 
     public function cart()
@@ -95,6 +100,7 @@ class mainController extends Controller
         $Item->delete();
         return redirect()->back()->with('success', 'item deleted from cart!');
     }
+
     public function addToCart(Request $data)
     {
         if (session()->has('id')) {
@@ -107,4 +113,5 @@ class mainController extends Controller
             return redirect()->back()->with('success', 'item added to cart!');
         } else  return redirect('/login-user')->with('fail', 'Login to your account fisrt!');
     }
+
 }
