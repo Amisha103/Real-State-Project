@@ -113,7 +113,7 @@
                     <label for="password" class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password">
                 </div>
-                <button type="submit" name="register" class="btn btn-primary w-100 fs-4">Register</button>
+                <button type="submit" class="btn btn-primary w-100 fs-4">Register</button>
             </form>
         </div>
 

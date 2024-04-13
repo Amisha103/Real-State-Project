@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="d-flex container col-md-12 justify-content-end mt-4 col-sm-6">
-            <button class="fs-5 btn btn-outline-dark text-light">Admin Login</button>
+            <a href="/admin-login" class="fs-5 btn btn-outline-dark text-light">Admin Login</a>
         </div>
 
     </div>

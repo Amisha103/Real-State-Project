@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPanelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
@@ -15,8 +16,6 @@ use App\Http\Controllers\PostBlogController;
 Route::view('/hire', 'pages.hire')->name('hire');
 Route::view('/', 'pages.home');
 
-
-// Route::get('/post', [PostController::class, 'index'])->name('post');
 Route::get('/buy', [BuyController::class, 'index'])->name('buy');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 
@@ -36,3 +35,13 @@ Route::post('/registerUser', [mainController::class, 'registerUser'])->name('reg
 Route::post('/PostBlog', [PostController::class, 'PostBlog'])->name('PostBlog');
 Route::post('/loginUser', [mainController::class, 'loginUser'])->name('loginUser');
 Route::post('/addToCart', [mainController::class, 'addToCart'])->name('addToCart');
+
+// ---------------------------admin------------------------------
+Route::get('/admin-login', [AdminPanelController::class, 'index'])->name('index');
+Route::get('/update-blog', [AdminPanelController::class, 'UpdateBlog'])->name('UpdateBlog');
+Route::get('/admin-register', [AdminPanelController::class, 'adminRegister'])->name('adminRegister');
+Route::post('/adminRegisterUser', [AdminPanelController::class, 'adminRegisterUser'])->name('adminRegisterUser');
+Route::post('/AdminLoginUser', [AdminPanelController::class, 'AdminLoginUser'])->name('AdminLoginUser');
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::delete('/blogs/{id}', [BlogController::class, 'delete'])->name('blogs.delete');
