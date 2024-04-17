@@ -18,7 +18,7 @@
 
     a {
         text-decoration: none;
-        color: white;
+        color: black;
     }
 
     /* ------------navbar edits-------------------------- */
@@ -124,46 +124,58 @@
 </style>
 
 <body>
-
-    <div class="admin_home_div text-white container">
+    <div class="admin_home_div container">
         @include("layouts.navbar")
-        <h1 class="text-center mt-3">Modify what you need !</h1>
-        <div class="container text-white">
-            <table class="table text-white">
-                <thead>
-                    <tr>
-                        <th scope="col">Option</th>
-                        <th scope="col">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><a href="/contacts">Contact Request</a></td>
-                        <td>Requests from potential clients to contact</td>
-                    </tr>
-                    <tr>
-                        <td> <a href="/blogs">Blogs</a></td>
-                        <td>Articles and posts related to real estate</td>
-                    </tr>
-                    <tr>
-                        <td> <a href="/all-property-admin">All Sales</a></td>
-                        <td>All properties currently listed for sale</td>
-                    </tr>
-                    <tr>
-                        <td>Available Sales</td>
-                        <td>Properties currently available for purchase</td>
-                    </tr>
-                    <tr>
-                        <td>Flat for Sale</td>
-                        <td>Flats or apartments currently listed for sale</td>
-                    </tr>
-                    <tr>
-                        <td>Land for Sale</td>
-                        <td>Land parcels currently listed for sale</td>
-                    </tr>
-                </tbody>
-            </table>
+        <h1 class="text-center mt-3 text-white">Modify what you need!</h1>
+        <div class="mt-3 mb-5 row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/contacts">Contact Request</a></h5>
+                        <p class="card-text">Requests from potential clients to contact</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/blogs">Blogs</a></h5>
+                        <p class="card-text">Articles and posts related to real estate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/all-property-admin">All Sales</a></h5>
+                        <p class="card-text">All properties currently listed for sale</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/available-sale-admin">Available Sales</a></h5>
+                        <p class="card-text">Properties currently available for purchase</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/flat-sale-admin">Flat for Sale</a></h5>
+                        <p class="card-text">Flats or apartments currently listed for sale</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/land-sale-admin">Land for Sale</a></h5>
+                        <p class="card-text">Land parcels currently listed for sale</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
     @include("layouts.footer")

@@ -52,4 +52,29 @@ Route::get('/contacts-delete/{id}', [ContactController::class, 'delete'])->name(
 Route::post('/addinfo', [ContactController::class, 'addinfo'])->name('addinfo');
 
 Route::get('/all-property-admin', [AllDataController::class, 'index'])->name('index');
-Route::get('/delete/{id}', [AllDataController::class, 'delete'])->name('delete');
+Route::get('/deleteAll/{id}', [AllDataController::class, 'delete'])->name('delete');
+Route::get('/add-data', [AllDataController::class, 'addData'])->name('addData');
+Route::post('/addAllSales', [AllDataController::class, 'addAllSales'])->name('addAllSales');
+Route::get('/editAll/{id}', [AllDataController::class, 'edit'])->name('edit');
+Route::put('/updateAll/{id}', [AllDataController::class, 'updateAll'])->name('updateAll');
+
+Route::get('/available-sale-admin', [getAvailableController::class, 'index'])->name('index');
+Route::get('/deleteAv/{id}', [getAvailableController::class, 'delete'])->name('delete');
+Route::get('/add-av-data-page', [getAvailableController::class, 'addDataPage'])->name('addDataPage');
+Route::post('/add-av-data', [getAvailableController::class, 'add_available_data'])->name('add_available_data');
+Route::get('/editAv/{id}', [getAvailableController::class, 'edit'])->name('edit');
+Route::put('/updateAv/{id}', [getAvailableController::class, 'updateAv'])->name('updateAv');
+
+Route::get('/flat-sale-admin', [FlatForSaleController::class, 'index'])->name('index');
+Route::get('/deleteFlat/{id}', [FlatForSaleController::class, 'delete'])->name('delete');
+Route::get('/add-flat-page', [FlatForSaleController::class, 'addFlatPage'])->name('addFlatPage');
+Route::post('/add-flat-data', [FlatForSaleController::class, 'addFlatData'])->name('addFlatData');
+Route::get('/editFlat/{id}', [FlatForSaleController::class, 'edit'])->name('edit');
+Route::put('/update/{id}', [FlatForSaleController::class, 'update'])->name('update');
+
+Route::get('/land-sale-admin', [LandForSaleController::class, 'index'])->name('index');
+Route::get('/deleteLand/{id}', [LandForSaleController::class, 'delete'])->name('delete');
+Route::get('/add-land-page', [LandForSaleController::class, 'addLandPage'])->name('addLandPage');
+Route::post('/add-land-data', [LandForSaleController::class, 'addLandData'])->name('addLandData');
+Route::get('/editLand/{id}', [LandForSaleController::class, 'edit'])->name('edit');
+Route::put('/updateLand/{id}', [LandForSaleController::class, 'updateLand'])->name('updateLand');
