@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class AdminUser extends Model
 {
-    // protected $table = 'admin_users';
+    protected $table = 'admin_users';
     use HasFactory;
 }

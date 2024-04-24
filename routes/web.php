@@ -49,10 +49,11 @@ Route::post('/PostBlog', [PostController::class, 'PostBlog'])->name('PostBlog');
 // ---------------------------admin------------------------------
 
 Route::get('/admin-login', [AdminPanelController::class, 'index'])->name('index');
+Route::get('/admin-home', [AdminPanelController::class, 'adminHome'])->name('adminHome');
 Route::get('/update-blog', [AdminPanelController::class, 'UpdateBlog'])->name('UpdateBlog');
 Route::get('/admin-register', [AdminPanelController::class, 'adminRegister'])->name('adminRegister');
 Route::post('/adminRegisterUser', [AdminPanelController::class, 'adminRegisterUser'])->name('adminRegisterUser');
-Route::post('/AdminLoginUser', [AdminPanelController::class, 'AdminLoginUser'])->name('AdminLoginUser');
+// Route::post('/AdminLoginUser', [AdminPanelController::class, 'AdminLoginUser'])->name('AdminLoginUser');
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('index');
 Route::get('/contacts-delete/{id}', [ContactController::class, 'delete'])->name('delete');
@@ -87,3 +88,4 @@ Route::get('/editLand/{id}', [LandForSaleController::class, 'edit'])->name('edit
 Route::put('/updateLand/{id}', [LandForSaleController::class, 'updateLand'])->name('updateLand');
 
 Route::get('/purchase-details-admin', [AdminPanelController::class, 'purchaseDetailsAdmin'])->name('purchaseDetailsAdmin');
+Route::get('/deleted-purchase-from-admin/{id}', [AdminPanelController::class, 'deletedPurchaseAdmin'])->name('deletedPurchaseAdmin');

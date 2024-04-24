@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\AdminUser;
+use App\Models\Purchase;
 
 class AdminPanelController extends Controller
 {
@@ -29,24 +30,33 @@ class AdminPanelController extends Controller
         $newUser->name = $data->input('username');
         $newUser->email = $data->input('email');
         $newUser->password = $data->input('password');
+        $newUser->type = "admin";
         $newUser->save();
 
         if ($newUser) return redirect('/admin-login')->with('success', 'Your account is ready !');
         else return redirect('/admin-register')->with('fail', 'Account creation failed ! ');
     }
-    public function AdminLoginUser(Request $data)
-    {
-        $user = AdminUser::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
-        if ($user) {
-            session()->put('id', $user->id);
-            return view('admin.adminHome');
-        } else
-            return redirect('/admin-login')->with('fail', 'Login failed! Incorrect email or password');
-    }
+
+    // public function AdminLoginUser(Request $data)
+    // {
+    //     $user = AdminUser::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
+    //     if ($user) {
+    //         session()->put('id', $user->id);
+    //         return view('admin.adminHome');
+    //     } else
+    //         return redirect('/admin-login')->with('fail', 'Login failed! Incorrect email or password');
+    // }
 
     public function purchaseDetailsAdmin()
     {
-        
+        $purchaseData = Purchase::all();
+        return view('admin.purchaseAdmin', compact('purchaseData'));
+    }
 
+    public function deletedPurchaseAdmin($id)
+    {
+        $deletePurchase = Purchase::find($id);
+        $deletePurchase->delete();
+        return redirect()->back()->with('success', 'Purchase Data deleted successfully.');
     }
 }

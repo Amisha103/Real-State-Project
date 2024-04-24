@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\AdminUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Cart;
@@ -22,19 +22,32 @@ class mainController extends Controller
         if ($newUser->save()) return redirect('/login-user')->with('success', 'Your account is ready!');
     }
 
-    public function loginUser(Request $data)
+    public function loginUser(Request $request)
     {
-        $user = User::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
-        if ($user) {
-            session()->put('id', $user->id);
-            session()->put('type', $user->type);
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-            if ($user->type == 'Customer')
-                return redirect('/');
-            else
-                return redirect('/admin');
-        } else
-            return redirect('/login-user')->with('fail', 'Login failed! Incorrect email or password');
+        $customer = User::where('email', $email)
+            ->where('password', $password)
+            ->first();
+
+        if ($customer) {
+            session()->put('id', $customer->id);
+            session()->put('type', 'Customer');
+            return redirect('/');
+        }
+
+        $admin = AdminUser::where('email', $email)
+            ->where('password', $password)
+            ->first();
+
+        if ($admin) {
+            session()->put('id', $admin->id);
+            session()->put('type', 'Admin');
+            return view('admin.adminHome');
+        }
+
+        return redirect('/login-user')->with('fail', 'Login failed! Incorrect email or password');
     }
 
     public function login()

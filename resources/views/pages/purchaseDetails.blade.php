@@ -99,22 +99,22 @@
 
     <div class="pots_div text-white container">
         @include("layouts.navbar")
-        <h1 class="text-center mt-3">Purchase Details</h1>
+        <h1 class="text-center mt-5 mb-5">Purchase Details</h1>
 
 
 
         <div class="container">
             @if ($purchaseItems->isNotEmpty())
-            <table class="table text-white">
+            <table class="justify-content-center table mb-5 text-white">
                 @foreach ($purchaseItems as $item)
-                <tr>
-                    <td>
+                <tr class="text-center">
+                    <td class="text-center">
                         <strong>Product Id :</strong> <br>
                         <strong>Address :</strong> <br>
                         <strong>Quantity :</strong> <br>
                         <strong>Purchase Date :</strong> <br>
                     </td>
-                    <td>
+                    <td class="text-center">
                         {{ $item->productId }} <br>
                         {{ $item->address }} <br>
                         {{ $item->quantity }}<br>

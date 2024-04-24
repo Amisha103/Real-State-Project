@@ -26,26 +26,39 @@
                     <a class="nav-link text-white custom-active-link {{ Route::is('hire') ? 'active' : '' }}" href="/hire">Hire Us</a>
                 </li>
 
-                @if(session()->has('id'))
+                @php
+                $type = session()->get('type');
+                @endphp
+
+                @if($type === 'Customer' || $type === 'Admin')
 
                 @php
-                $user = \App\Models\User::find(session('id'));
+                $userModel = $type === 'Customer' ? \App\Models\User::find(session('id')) : \App\Models\AdminUser::find(session('id'));
+                $userName = $type === 'Customer' ? $userModel->fullname : 'Admin-' . $userModel-> name;
                 @endphp
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $user->fullname }}</a>
+                    <a class="bg-warning text-dark border border-dark rounded nav-link dropdown-toggle" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{$userName }}</a>
                     <ul class="text-white dropdown-menu bg-transparent" aria-labelledby="pagesDropdown">
+                        @if($type === 'Customer')
                         <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('post') ? 'active' : '' }}" href="{{ route('post') }}">Post</a></li>
                         <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('PurchaseShow') ? 'active' : '' }}" href="{{ URL::to('purchase-show/' .  session('id')) }}">Purchase details</a></li>
-                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('Yourblog') ? 'active' : '' }}" href="{{ URL::to('your-blog/' . $user->id) }}">Your Blogs</a></li>
+                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('Yourblog') ? 'active' : '' }}" href="{{ URL::to('your-blog/' . $userModel->id) }}">Your Blogs</a></li>
+                        @else
+                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('adminHome') ? 'active' : '' }}" href="{{ route('adminHome') }}">Admin Page</a></li>
+                        @endif
                         <li><a href="/logout" class="custom-active-link blur-background text-white dropdown-item">Logout</a></li>
                     </ul>
                 </li>
+
                 @else
+
                 <li class="nav-item justify-content-end">
                     <a class="nav-link text-white" href="/login-user">Login</a>
                 </li>
+
                 @endif
+
 
             </ul>
         </div>
