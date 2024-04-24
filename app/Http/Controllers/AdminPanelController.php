@@ -43,4 +43,10 @@ class AdminPanelController extends Controller
         } else
             return redirect('/admin-login')->with('fail', 'Login failed! Incorrect email or password');
     }
+
+    public function purchaseDetailsAdmin()
+    {
+        
+
+    }
 }

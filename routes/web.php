@@ -14,10 +14,14 @@ use App\Http\Controllers\LandForSaleController;
 use App\Http\Controllers\mainController;
 
 Route::view('/hire', 'pages.hire')->name('hire');
-Route::view('/', 'pages.home');
+Route::view('/', 'pages.home')->name('home');
 
 Route::get('/buy', [BuyController::class, 'index'])->name('buy');
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/your-blog/{id}', [BlogController::class, 'YourBlog'])->name('Yourblog');
+Route::get('/blogs', [BlogController::class, 'indexUpdate'])->name('blogs.indexUpdate');
+Route::get('/blogs/{id}', [BlogController::class, 'delete'])->name('blogs.delete');
 
 Route::get('/get-option', [OptionController::class, 'getOption'])->name('getOption');
 
@@ -25,6 +29,11 @@ Route::get('/buy-options/all', [AllDataController::class, 'getAllData'])->name('
 Route::get('/available-data', [getAvailableController::class, 'getAvailableData'])->name('getAvailableData');
 Route::get('/flat-for-sale', [FlatForSaleController::class, 'FlatSaleData'])->name('FlatSaleData');
 Route::get('/land-for-sale', [LandForSaleController::class, 'LandSale'])->name('LandSale');
+
+Route::get('/clear-cart', [mainController::class, 'clearCart'])->name('clear.cart');
+Route::post('/update-quantity', [mainController::class, 'updateQuantity'])->name('updateQuantity');
+Route::get('/purchase/{id}', [mainController::class, 'PurchaseButton'])->name('PurchaseButton');
+Route::get('/purchase-show/{id}', [mainController::class, 'PurchaseShow'])->name('PurchaseShow');
 Route::get('/register-user', [mainController::class, 'register'])->name('register');
 Route::get('/login-user', [mainController::class, 'login'])->name('login');
 Route::get('/logout', [mainController::class, 'logout'])->name('logout');
@@ -32,9 +41,10 @@ Route::get('/post', [mainController::class, 'post'])->name('post');
 Route::get('/cart', [mainController::class, 'cart'])->name('cart');
 Route::get('/deleteCartItem/{id}', [mainController::class, 'deleteCartItem'])->name('deleteCartItem');
 Route::post('/registerUser', [mainController::class, 'registerUser'])->name('registerUser');
-Route::post('/PostBlog', [PostController::class, 'PostBlog'])->name('PostBlog');
 Route::post('/loginUser', [mainController::class, 'loginUser'])->name('loginUser');
 Route::post('/addToCart', [mainController::class, 'addToCart'])->name('addToCart');
+
+Route::post('/PostBlog', [PostController::class, 'PostBlog'])->name('PostBlog');
 
 // ---------------------------admin------------------------------
 
@@ -43,9 +53,6 @@ Route::get('/update-blog', [AdminPanelController::class, 'UpdateBlog'])->name('U
 Route::get('/admin-register', [AdminPanelController::class, 'adminRegister'])->name('adminRegister');
 Route::post('/adminRegisterUser', [AdminPanelController::class, 'adminRegisterUser'])->name('adminRegisterUser');
 Route::post('/AdminLoginUser', [AdminPanelController::class, 'AdminLoginUser'])->name('AdminLoginUser');
-
-Route::get('/blogs', [BlogController::class, 'indexUpdate'])->name('blogs.indexUpdate');
-Route::get('/blogs/{id}', [BlogController::class, 'delete'])->name('blogs.delete');
 
 Route::get('/contacts', [ContactController::class, 'index'])->name('index');
 Route::get('/contacts-delete/{id}', [ContactController::class, 'delete'])->name('delete');
@@ -78,3 +85,5 @@ Route::get('/add-land-page', [LandForSaleController::class, 'addLandPage'])->nam
 Route::post('/add-land-data', [LandForSaleController::class, 'addLandData'])->name('addLandData');
 Route::get('/editLand/{id}', [LandForSaleController::class, 'edit'])->name('edit');
 Route::put('/updateLand/{id}', [LandForSaleController::class, 'updateLand'])->name('updateLand');
+
+Route::get('/purchase-details-admin', [AdminPanelController::class, 'purchaseDetailsAdmin'])->name('purchaseDetailsAdmin');

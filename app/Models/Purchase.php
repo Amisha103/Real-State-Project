@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Purchase extends Model
 {
-    protected $fillable = ['title', 'image', 'content','customerId'];
+    protected $table = 'purchase_table';
     use HasFactory;
 }

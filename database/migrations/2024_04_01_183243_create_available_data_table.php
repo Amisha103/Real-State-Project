@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('available_data', function (Blueprint $table) {
-            $table->bigIntegerid();
+            $table->id();
             $table->string('image');
             $table->string('type');
             $table->string('details');
@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('mobile_number');
             $table->timestamps();
         });
-
-        // DB::statement("ALTER TABLE available_data AUTO_INCREMENT = 100;");
     }
 
     /**

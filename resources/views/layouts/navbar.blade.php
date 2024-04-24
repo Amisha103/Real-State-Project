@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="custom_act text-white nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="custom_act text-white nav-link custom-active-link {{ Route::is('home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Explore</a>
@@ -23,14 +23,23 @@
                     <a class="nav-link text-white" href="/#about_us">About us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/hire">Hire Us</a>
+                    <a class="nav-link text-white custom-active-link {{ Route::is('hire') ? 'active' : '' }}" href="/hire">Hire Us</a>
                 </li>
+
                 @if(session()->has('id'))
-                <li class="nav-item justify-content-end">
-                    <a class="nav-link text-white" href="/post">Post</a>
-                </li>
-                <li class="nav-item justify-content-end">
-                    <a class="nav-link text-white" href="/logout">Logout</a>
+
+                @php
+                $user = \App\Models\User::find(session('id'));
+                @endphp
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ $user->fullname }}</a>
+                    <ul class="text-white dropdown-menu bg-transparent" aria-labelledby="pagesDropdown">
+                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('post') ? 'active' : '' }}" href="{{ route('post') }}">Post</a></li>
+                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('PurchaseShow') ? 'active' : '' }}" href="{{ URL::to('purchase-show/' .  session('id')) }}">Purchase details</a></li>
+                        <li><a class="custom-active-link blur-background text-white dropdown-item {{ Route::is('Yourblog') ? 'active' : '' }}" href="{{ URL::to('your-blog/' . $user->id) }}">Your Blogs</a></li>
+                        <li><a href="/logout" class="custom-active-link blur-background text-white dropdown-item">Logout</a></li>
+                    </ul>
                 </li>
                 @else
                 <li class="nav-item justify-content-end">
@@ -40,11 +49,13 @@
 
             </ul>
         </div>
+        @if(session()->has('id'))
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item">
                 <a class="nav-link text-white" href="/cart"><i class="fa-solid fa-cart-plus fs-5"></i></a>
             </li>
         </ul>
+        @endif
 
     </div>
 </nav>

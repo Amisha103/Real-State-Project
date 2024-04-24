@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Purchase;
 use Illuminate\Support\Facades\DB;
 
 class mainController extends Controller
@@ -20,6 +21,7 @@ class mainController extends Controller
 
         if ($newUser->save()) return redirect('/login-user')->with('success', 'Your account is ready!');
     }
+
     public function loginUser(Request $data)
     {
         $user = User::where('email', $data->input('email'))->where('password', $data->input('password'))->first();
@@ -34,10 +36,12 @@ class mainController extends Controller
         } else
             return redirect('/login-user')->with('fail', 'Login failed! Incorrect email or password');
     }
+
     public function login()
     {
         return view('pages.login');
     }
+
     public function post()
     {
         return view('pages.post');
@@ -88,12 +92,14 @@ class mainController extends Controller
     {
         return view('pages.register');
     }
+
     public function logout()
     {
         session()->forget('id');
         session()->forget('type');
         return view('pages.home');
     }
+
     public function deleteCartItem($id)
     {
         $Item = Cart::find($id);
@@ -108,10 +114,68 @@ class mainController extends Controller
             $item->productId = $data->input('productId');
             $item->quantity = $data->input('quantity');
             $item->type = $data->input('type');
+            $item->address = $data->input('address');
             $item->customerId = session()->get('id');
             $item->save();
             return redirect()->back()->with('success', 'item added to cart!');
         } else  return redirect('/login-user')->with('fail', 'Login to your account fisrt!');
     }
 
+    public function updateQuantity(Request $request)
+    {
+        $itemId = $request->itemId;
+        $newQuantity = $request->newQuantity;
+
+        $cartItem = Cart::find($itemId);
+        $cartItem->quantity = $newQuantity;
+        $cartItem->save();
+
+        return redirect()->back()->with('success', 'Quantity updated successfully');
+    }
+
+
+
+    public function clearCart()
+    {
+        $customerId = session()->get('id');
+        $cartItemsCount = Cart::where('customerId', $customerId)->count();
+
+        if ($cartItemsCount > 0) {
+            Cart::where('customerId', $customerId)->delete();
+            return redirect()->back()->with('success', 'Cart cleared successfully!');
+        } else {
+            return redirect()->back()->with('fail', 'Your cart is already empty!');
+        }
+    }
+
+
+    public function PurchaseButton($id)
+    {
+
+        $cartItems = Cart::where('customerId', $id)->get();
+
+        if ($cartItems->isNotEmpty()) {
+            foreach ($cartItems as $cartItem) {
+                $purchase = new Purchase();
+                $purchase->productId = $cartItem->productId;
+                $purchase->customerId = $cartItem->customerId;
+                $purchase->quantity = $cartItem->quantity;
+                $purchase->address = $cartItem->address;
+                $purchase->date = now();
+                $purchase->save();
+            }
+
+            Cart::where('customerId', $id)->delete();
+
+            return redirect()->back()->with('success', 'Purchase confirmed. We will reach you soon');
+        } else {
+            return redirect()->back()->with('fail', 'No items found for you.');
+        }
+    }
+
+    public function PurchaseShow($id)
+    {
+        $purchaseItems = Purchase::where('customerId', $id)->get();
+        return view('pages.purchaseDetails', compact('purchaseItems'));
+    }
 }

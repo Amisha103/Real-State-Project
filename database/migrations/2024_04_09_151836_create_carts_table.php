@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('productId')->default(0);
             $table->integer('quantity')->default(0);
             $table->string('type');
+            $table->string('address');
             $table->integer('customerId')->default(0);
             $table->timestamps();
         });

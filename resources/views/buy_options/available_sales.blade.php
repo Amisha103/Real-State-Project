@@ -161,6 +161,8 @@
                             </div>
                             <input type="hidden" name="productId" value="{{$data->id}}">
                             <input type="hidden" name="type" value="{{$data->type}}">
+                            <input type="hidden" name="address" value="{{$data->address}}">
+                            
                             <button type="submit" name="addToCart" class="btn btn-success btn-block mt-3 col-md-12">Add to Cart</button>
                         </form>
                     </div>

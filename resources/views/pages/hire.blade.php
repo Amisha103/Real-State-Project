@@ -13,6 +13,11 @@
             background-color: black;
         }
 
+        .custom-active-link.active {
+            margin-right: 5px;
+            border-left: 1px solid red;
+        }
+
         .dropdown-menu {
             backdrop-filter: blur(18px) !important;
             background-color: rgba(10, 10, 10, 0.4) !important;

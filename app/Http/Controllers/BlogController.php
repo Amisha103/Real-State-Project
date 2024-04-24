@@ -19,6 +19,13 @@ class BlogController extends Controller
         return view('admin.updateBlog', compact('blogs'));
     }
 
+    public function YourBlog($id)
+    {
+        $blogs = Blog::where('customerId', $id)->get();
+        return view('pages.yourBlog', compact('blogs'));
+    }
+
+
     public function delete($id)
     {
         $blog = Blog::find($id);

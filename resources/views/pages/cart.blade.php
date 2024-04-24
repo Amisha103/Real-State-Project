@@ -105,7 +105,12 @@
             <div class="alert alert-success">
                 {{ session()->get('success') }}
             </div>
+            @elseif(session()->has('fail'))
+            <div class="alert alert-danger">
+                {{ session()->get('fail') }}
+            </div>
             @endif
+            @if($allCartItems -> isNotEmpty())
             <div class="table-responsive card bg-dark p-2 rounded border mb-4 border-warning">
                 <table class="table text-white">
                     <thead>
@@ -126,23 +131,68 @@
                             <td class="py-4">{{ $item->type }}</td>
                             <td class="py-4">{{ $item->mobile_number }}</td>
                             <td class="py-4">
-                                <div class="input-group">
+                                <!-- <div class="input-group">
                                     <input type="number" class="form-control bg-dark text-white quantity-input" value="{{ $item->quantity }}" min="1" max="3" data-id="{{ $item->id }}">
                                     <div class="input-group-append">
                                         <button class="btn btn-primary update-quantity" data-id="{{ $item->id }}">Update</button>
                                     </div>
-                                </div>
+                                </div> -->
+                                <form action="{{ route('updateQuantity') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="itemId" value="{{ $item->id }}">
+                                    <input type="number" name="newQuantity" class="form-control bg-dark text-white quantity-input" value="{{ $item->quantity }}" min="1" max="3">
+                                    <button type="submit" class="btn btn-primary mt-2">Update</button>
+                                </form>
                             </td>
                             <td class="py-4">
-                                <a type="button" href="{{ URL::to('deleteCartItem/'.$item->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                <a type="button" href="{{ URL::to('deleteCartItem/' . $item->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+            <div class="conntainer row m-auto col-12 mb-4 justify-content-center">
+
+                <a href="{{ route('buy') }}" class="btn btn-hover btn-primary border border-light col-3 col-sm-2 m-2">Continue Shopping</a>
+                @if(session()->has('id'))
+                <a href="{{ URL::to('purchase/' . session('id')) }}" class="btn btn-hover btn-success border border-light col-3 col-sm-2 m-2">Confirm purchase</a>
+                <a href="{{ route('clear.cart') }}" class="btn btn-hover btn-danger border border-light col-3 col-sm-2 m-2">Clear All</a>
+                @endif
+            </div>
+            @else
+            <p class="fs-2 text-center mb-5 mt-5 text-danger border border-danger ">Empty Cart</p>
+            @endif
         </div>
     </div>
 
+    <!-- <script>
+        $(document).ready(function() {
+            $('.update-quantity').click(function(e) {
+                e.preventDefault();
+                var itemId = $(this).data('id');
+                var newQuantity = $(this).closest('tr').find('.quantity-input').val();
+
+                // AJAX request to update quantity
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route("updateQuantity") }}',
+                    data: {
+                        itemId: itemId,
+                        newQuantity: newQuantity,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        // Handle success response
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script> -->
 
     @include("layouts.footer")
