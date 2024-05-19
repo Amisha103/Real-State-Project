@@ -34,7 +34,7 @@ class getAvailableController extends Controller
     public function add_available_data(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:8048',
             'owner_name' => 'required|string',
             'type' => 'required|string',
             'details' => 'required|string',
@@ -64,7 +64,7 @@ class getAvailableController extends Controller
             $alldata->mobile_number = $request->input('mobile_number');
             $alldata->save();
 
-            return redirect('/land-sale-admin')->with('success', 'Available property added successfully!');
+            return redirect('/available-sale-admin')->with('success', 'Available property added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('fail', $e->getMessage());
         }

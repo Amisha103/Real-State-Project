@@ -25,7 +25,7 @@ class AllDataController extends Controller
     public function addAllSales(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:6048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:8048',
             'owner_name' => 'required|string',
             'type' => 'required|string',
             'details' => 'required|string',

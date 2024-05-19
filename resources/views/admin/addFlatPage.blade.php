@@ -110,7 +110,7 @@
         </div>
         @endif
         <div class="form_div container mb-4">
-            <form action="{{URL::to('add-flat-data')}}" method="POST"<input type="file" class="form-control-file mb-4" id="image" name="image" required>>
+            <form action="{{URL::to('add-flat-data')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="owner_name">Owner Name:</label>

@@ -33,7 +33,7 @@ class LandForSaleController extends Controller
     public function addLandData(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:8048',
             'owner_name' => 'required|string',
             'type' => 'required|string',
             'details' => 'required|string',

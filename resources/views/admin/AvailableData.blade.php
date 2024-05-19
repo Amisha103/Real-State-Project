@@ -35,7 +35,7 @@
                     <td style="width: 20%;"><img src="{{ $data->image }}" style="width: 45%;" alt=""></td>
                     <td style="width: 9%;">{{ $data->owner_name }}</td>
                     <td style="width: 5%;">{{ $data->type }}</td>
-                    <td style="width: 10%;">{{ $data->details }}</td>
+                    <td class="text-center" style="width: 10%;">{{ $data->details }}</td>
                     <td style="width: 25%;">{{ $data->address }}</td>
                     <td style="width: 10%;">{{ $data->mobile_number }}</td>
                     <td style="width: 10%;">

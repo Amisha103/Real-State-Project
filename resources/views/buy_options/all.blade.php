@@ -133,7 +133,7 @@
                 <div class="card bg-transparent text-white">
                     <img src="{{ $data->image }}" class="card-img-top">
                     <div class="card-body card_body">
-                        <div class="details border border-secondary rounded">
+                        <div class="details border text-center border-secondary rounded">
                             <h5 class="card-title">{{ $data->details }}</h5>
                         </div>
                         <div class="card-text text-center">Type: {{ $data->type }}</div>
