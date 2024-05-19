@@ -27,6 +27,7 @@ class ContactController extends Controller
         $contactInfo->name = $request->input('name');
         $contactInfo->email = $request->input('email');
         $contactInfo->message = $request->input('message');
+        $contactInfo->customerId = session()->get('id');
 
         $contactInfo->save();
 

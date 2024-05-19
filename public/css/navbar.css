@@ -1,0 +1,27 @@
+.text-white.dropdown-menu.bg-transparent li a:hover {
+    background-color: black;
+}
+
+.custom-active-link.active {
+    background-color: #6e0505;
+}
+
+.dropdown-menu {
+    backdrop-filter: blur(18px) !important;
+    background-color: rgba(10, 10, 10, 0.4) !important;
+}
+
+ul li:hover {
+    border-left: 1px solid red;
+    transition: all 0.15s ease-in;
+}
+
+.navbar {
+    background-color: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+.blur-background {
+    background-color: rgba(5, 5, 5, 0.1);
+    backdrop-filter: blur(5px);
+}

@@ -25,7 +25,7 @@ class AllDataController extends Controller
     public function addAllSales(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:6048',
             'owner_name' => 'required|string',
             'type' => 'required|string',
             'details' => 'required|string',
@@ -55,7 +55,7 @@ class AllDataController extends Controller
             $alldata->mobile_number = $request->input('mobile_number');
             $alldata->save();
 
-            return redirect('/land-sale-admin')->with('success', 'Data added successfully!');
+            return redirect('/all-property-admin')->with('success', 'Data added successfully!');
         } catch (\Exception $e) {
             return redirect()->back()->with('fail', $e->getMessage());
         }

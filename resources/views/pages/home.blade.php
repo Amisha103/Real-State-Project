@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <link rel="stylesheet" href="css/navbar.css"> --}}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('short_icon/short-icon.png') }}">
     <title>Toplkapi Builders-TPB</title>
-    <!-- <link href="{{ asset('css/home.css') }}" rel="stylesheet"> -->
-    <!-- @push('css')
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    @endpush -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* ---------------intro part------------------- */
@@ -83,6 +82,7 @@
 
         /* ---------------into part ends------------------ */
         /* ------------navbar edits-------------------------- */
+
         .text-white.dropdown-menu.bg-transparent li a:hover {
             background-color: black;
         }
@@ -108,6 +108,7 @@
 
         /* ------------navbar edits ends-------------------------- */
         /* ---------------about part-------------------------------- */
+
         .second_div {
             height: 100vh;
             background-color: black;
@@ -160,7 +161,7 @@
 <body>
 
     <div class="main_div">
-        @include("layouts.navbar")
+        @include('layouts.navbar')
         <div class="container col-12 mt-3 text-light">
             <div class="d-flex justify-content-between flex-column flex-md-row mb-3 align-items-center">
                 <div class="blrr col-md-4 mb-5 text-center">
@@ -173,25 +174,27 @@
             </div>
 
             <div class="d-flex justify-content-center mt-5 col-12 col-md-6 mx-auto ">
-                <a class="fs-4 btn btn-hover border border-warning shadow btn-outline-dark text-light col-md-4 p-3" href="#about_us">Know about us</a>
+                <a class="fs-4 btn btn-hover border border-warning shadow btn-outline-dark text-light col-md-4 p-3"
+                    href="#about_us">Know about us</a>
             </div>
 
         </div>
     </div>
 
-    <div id="about_us" class="container-fluid second_div col-12 text-white d-flex justify-content-center row align-items-center">
+    <div id="about_us"
+        class="container-fluid second_div col-12 text-white d-flex justify-content-center row align-items-center">
         <div class="container text col-md-6 col-sm-12 about-content">
             <div class="d-flex flex-column justify-content-between h-100">
                 <div>
                     <h1 class="p-3 fs-16">About Us</h1>
-                    <h2 class="p-3">Lorem ipsum dolor sit amet. Lorem ipsum dolor
-                        sit amet consectetur
-                        adipisicing elit.
-                        Deserunt, quo ex ipsam consectetur
-                        maiores modi temporibus nam ratione maxime voluptas?
+                    <h2 class="p-3">Topkapi Builders ensures innovative, trusted, luxurious.
+                        excellence in design, integrity
+                        in service, setting new industry standards on your property.
+                        You can also buy and review your property with us.
                     </h2>
                     <div class="container-fluid contact">
-                        <a class="btn btn-outline-warning p-3 fs-5 text-white mt-3 custom-hover" href="/hire">Hire Us</a>
+                        <a class="btn btn-outline-warning p-3 fs-5 text-white mt-3 custom-hover" href="/hire">Hire
+                            Us</a>
                     </div>
 
                 </div>
@@ -204,4 +207,4 @@
         </div>
     </div>
 
-    @include("layouts.footer")
+    @include('layouts.footer')

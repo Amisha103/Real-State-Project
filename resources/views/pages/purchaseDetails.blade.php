@@ -103,6 +103,7 @@
 
 
 
+
         <div class="container">
             @if ($purchaseItems->isNotEmpty())
             <table class="justify-content-center table mb-5 text-white">

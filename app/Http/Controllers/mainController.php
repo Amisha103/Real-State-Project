@@ -44,7 +44,7 @@ class mainController extends Controller
         if ($admin) {
             session()->put('id', $admin->id);
             session()->put('type', 'Admin');
-            return view('admin.adminHome');
+            return redirect('/admin-home');
         }
 
         return redirect('/login-user')->with('fail', 'Login failed! Incorrect email or password');
@@ -186,9 +186,9 @@ class mainController extends Controller
         }
     }
 
-    public function PurchaseShow($id)
+    public function PurchaseShow($c_id)
     {
-        $purchaseItems = Purchase::where('customerId', $id)->get();
+        $purchaseItems = Purchase::where('customerId', $c_id)->get();
         return view('pages.purchaseDetails', compact('purchaseItems'));
     }
 }

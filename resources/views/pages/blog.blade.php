@@ -145,32 +145,6 @@
 
         @include("layouts.navbar")
 
-        <!-- <div class="container-fluid">
-            <h1 class="text-center text-light">Users Blogs</h1>
-            <div class="container blog_class">
-                <div class="row">
-                    @foreach($blogs as $blog)
-                    <div class="col-md-6 mb-4">
-                        <div class="card card_div bg-transparent mt-5" style="margin:auto; width: 600px; height: 300px; overflow: auto;">
-
-                            <div style="display: flex; justify-content: center; align-items: center;">
-                                <img src="{{$blog->image}}" style="width: 90%; height: 90%;" class="card-img-top">
-                            </div>
-                            <div class="card-body bg-warning m-1 rounded border border-1-danger">
-                                <h5 class="card-title">{{ $blog->title }}</h5>
-                                <p class="card-text col-8 m-auto">{{ $blog->content }}</p>
-                                @if ($blog->created_at)
-                                <p class="card-text"><small class="text-muted">Posted on {{ $blog->created_at->format('F j, Y \a\t h:i A') }}</small></p>
-                                @else
-                                <p class="card-text"><small class="text-muted">No creation date available</small></p>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-        </div> -->
         <h1 class="text-center text-light">User's Blogs</h1>
         <div class="container blog_class">
             <div class="row">

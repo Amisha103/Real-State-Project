@@ -1,0 +1,37 @@
+/* -----------------footer parts----------------------------- */
+
+.footer_div {
+    animation: fade_bottom 1s ease backwards;
+    height: 50vh;
+    background-color: #23798a;
+}
+
+@keyframes fade_bottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer_footer_div {
+    height: 8vh;
+    background-color: #131720;
+}
+
+.logos i:hover {
+    color: #001c40 !important;
+    transition: all 0.2s ease-in;
+}
+
+@media only screen and (max-width: 600px) {
+    .for_small {
+        font-size: 13px;
+    }
+}
+
+/* -----------------footer part ends----------------------------- */

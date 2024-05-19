@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TPB-Admin</title>
@@ -89,35 +91,31 @@
 
     /* -----------------footer part ends----------------------------- */
     /* -----------------admin_home_div part starts-------------------------- */
+
     .admin_home_div {
         padding-top: 86px;
     }
 
-    /* .container {
-        margin-top: 50px;
-    } */
-
-    .table {
-        width: 100%;
-        margin-bottom: 1rem;
-        color: #212529;
-        border-collapse: collapse;
+    .card {
+        animation: fadein 2s ease forwards
     }
 
-    .table th,
-    .table td {
-        padding: 0.75rem;
-        vertical-align: top;
-        border-top: 1px solid #dee2e6;
-    }
+    @keyframes fadein {
+        30% {
+            opacity: 0;
+            transform: translateX(300px);
+        }
 
-    .table thead th {
-        vertical-align: bottom;
-        border-bottom: 2px solid #dee2e6;
-    }
+        60% {
+            opacity: .5;
+            transform: translateX(200);
+        }
 
-    .table tbody+tbody {
-        border-top: 2px solid #dee2e6;
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
     }
 
     /* -----------------admin_home_div part ends---------------------------- */
@@ -125,7 +123,7 @@
 
 <body>
     <div class="admin_home_div container">
-        @include("layouts.navbar")
+        @include('layouts.navbar')
         <h1 class="text-center mt-3 text-white">Modify what you need!</h1>
         <div class="mt-3 mb-5 row row-cols-1 row-cols-md-2 row-cols-lg-2 g-4">
             <div class="col">
@@ -186,4 +184,4 @@
             </div>
         </div>
     </div>
-    @include("layouts.footer")
+    @include('layouts.footer')

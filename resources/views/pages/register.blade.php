@@ -4,21 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Register User</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: gray;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
         /* ------------navbar edits-------------------------- */
         .text-white.dropdown-menu.bg-transparent li a:hover {
             background-color: black;
@@ -45,43 +36,131 @@
         }
 
         /* ------------navbar edits ends-------------------------- */
-        /* -----------------footer parts----------------------------- */
-
-        .footer_div {
-            animation: fade_bottom 1s ease backwards;
-            height: 50vh;
-            background-color: #23798a;
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
-        @keyframes fade_bottom {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body {
+            background-color: #080710;
         }
 
-        .footer_footer_div {
-            height: 8vh;
-            background-color: #131720;
+        .background {
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
         }
 
-        .logos i:hover {
-            color: #001c40 !important;
-            transition: all 0.2s ease-in;
+        .background .shape {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
         }
 
-        @media only screen and (max-width: 600px) {
-            .for_small {
-                font-size: 13px;
-            }
+        .shape:first-child {
+            background: linear-gradient(#1845ad,
+                    #23a2f6);
+            left: -80px;
+            top: -80px;
         }
 
-        /* -----------------footer part ends----------------------------- */
+        .shape:last-child {
+            background: linear-gradient(to right,
+                    #ff512f,
+                    #f09819);
+            right: -30px;
+            bottom: -80px;
+        }
+
+        form {
+            height: 520px;
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.13);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            padding: 50px 35px;
+        }
+
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+        form h3 {
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 42px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 30px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        input {
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        ::placeholder {
+            color: #e5e5e5;
+        }
+
+
+
+        .social {
+            margin-top: 30px;
+            display: flex;
+        }
+
+        .social div {
+            background: red;
+            width: 150px;
+            border-radius: 3px;
+            padding: 5px 10px 10px 5px;
+            background-color: rgba(255, 255, 255, 0.27);
+            color: #eaf0fb;
+            text-align: center;
+        }
+
+        .social div:hover {
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+
+        .social .fb {
+            margin-left: 25px;
+        }
+
+        .social i {
+            margin-right: 4px;
+        }
+
         /* ---------------------reg section starts------------------------ */
         .reg {
             height: 100vh;
@@ -97,26 +176,34 @@
     <div class="reg">
         @include('layouts.navbar')
 
+        <div class="background">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
         <div class="container">
             <h2 class="text-center mb-4 mt-2 regis">Register</h2>
-            <form action="registerUser" method="POST">
+
+            <form class="mt-3" action="registerUser" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="fullname" class="form-label">Full Name</label>
-                    <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Enter your full name">
+                    <input required type="text" name="fullname" class="form-control" id="fullname"
+                        placeholder="Enter your full name">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email address">
+                    <input required type="email" name="email" class="form-control" id="email"
+                        placeholder="Enter your email address">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password">
+                    <input required type="password" name="password" class="form-control" id="password"
+                        placeholder="Enter your password">
                 </div>
-                <button type="submit" class="btn btn-primary w-100 fs-4">Register</button>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
             </form>
         </div>
 
     </div>
 
-    @include('layouts.footer')

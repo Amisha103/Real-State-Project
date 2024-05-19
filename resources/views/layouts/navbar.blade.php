@@ -34,7 +34,7 @@
 
                 @php
                 $userModel = $type === 'Customer' ? \App\Models\User::find(session('id')) : \App\Models\AdminUser::find(session('id'));
-                $userName = $type === 'Customer' ? $userModel->fullname : 'Admin-' . $userModel-> name;
+                $userName = $type === 'Customer' ? $userModel->fullname : 'Admin-' . $userModel->name;
                 @endphp
 
                 <li class="nav-item dropdown">
