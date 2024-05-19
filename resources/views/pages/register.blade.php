@@ -44,6 +44,20 @@
             box-sizing: border-box;
         }
 
+        .login_form {
+            animation: fadeIn 3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         body {
             background-color: #080710;
         }
@@ -182,9 +196,7 @@
         </div>
 
         <div class="container">
-            <h2 class="text-center mb-4 mt-2 regis">Register</h2>
-
-            <form class="mt-3" action="registerUser" method="POST">
+            <form class="login_form mt-3" action="registerUser" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="fullname" class="form-label">Full Name</label>
@@ -206,4 +218,3 @@
         </div>
 
     </div>
-

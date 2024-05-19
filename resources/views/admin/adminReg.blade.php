@@ -18,6 +18,20 @@
             box-sizing: border-box;
         }
 
+        .login_form {
+            animation: fadeIn 3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         body {
             background-color: #080710;
         }
@@ -121,20 +135,22 @@
         <div class="shape"></div>
     </div>
     <div class="container">
-        <h2 class="text-center">Admin Register</h2>
-        <form class="mt-3" action="adminRegisterUser" method="POST">
+        <form class="login_form mt-3" action="adminRegisterUser" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input required type="text" name="username" class="form-control" id="username" placeholder="Enter username">
+                <input required type="text" name="username" class="form-control" id="username"
+                    placeholder="Enter username">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input required type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+                <input required type="email" name="email" class="form-control" id="email"
+                    placeholder="Enter email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Set Password</label>
-                <input required type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+                <input required type="password" name="password" class="form-control" id="password"
+                    placeholder="Enter password">
             </div>
             <button type="submit" class="btn btn-primary w-100">Register</button>
         </form>

@@ -114,6 +114,20 @@
             display: flex;
         }
 
+        .login_form{
+            animation: fadeIn 3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
         .social div {
             background: red;
             width: 150px;
@@ -178,7 +192,7 @@
             </div>
         @endif
     </div>
-    <form class="mt-5" action="loginUser" method="POST">
+    <form class="mt-5 login_form" action="loginUser" method="POST">
         @csrf
         <h3>Login Here</h3>
 

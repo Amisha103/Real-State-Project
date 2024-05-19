@@ -4,12 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkqKo9Ah_nRfwzihjt6ZCIr5G1n2TG7D0"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Hire Us</title>
     <style>
+        /* map part modal starts */
+        #map {
+            height: 550px;
+            width: 100%;
+        }
+
+        /* map part modal ends */
+
         /* ------------navbar edits-------------------------- */
         .text-white.dropdown-menu.bg-transparent li a:hover {
             background-color: black;
@@ -219,9 +230,12 @@
                             placeholder="Enter your message" required></textarea>
                         <small class="form-text text-muted">Words left: <span id="wordCount">100</span></small>
                     </div>
-                    <div class="submit_button_div d-flex justify-content-center">
+                    <div class="submit_button_div d-flex justify-content-center gap-3">
                         <button name="addinfo" type="submit"
                             class="border border-warning submit_button col-3 text-center">Submit</button>
+                        <button name="mapLocation" type="button"
+                            class="border border-warning submit_button col-3 text-center" data-bs-toggle="modal"
+                            data-bs-target="#mapModal">Location on Map</button>
                     </div>
                 </form>
             </div>
@@ -235,27 +249,48 @@
         @endif
 
 
-        {{-- <div class="container forms">
-            <form action="{{URL::to('addinfo')}}" method="POST">
-                @csrf
-                <div class="mb-3 col-md-12">
-                    <label for="name" class="form-label text-light">Your Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+        <div class="modal fade" id="mapModal" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mapModalLabel">Our Location</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="map"></div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label text-light">Your Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label text-light">Message (Maximum 100 words)</label>
-                    <textarea class="form-control" id="message" name="message" rows="5" maxlength="250" placeholder="Enter your message" required></textarea>
-                    <small class="form-text text-muted">Words left: <span id="wordCount">100</span></small>
-                </div>
-                <div class="submit_button_div d-flex justify-content-center">
-                    <button name="addinfo" type="submit" class="border border-warning submit_button col-3 text-center">Submit</button>
-                </div>
-            </form>
-        </div> --}}
+            </div>
+        </div>
     </div>
+
+
+    <script>
+        let map;
+
+        function initMap() {
+            const location = {
+                lat: 23.7931,
+                lng: 90.4048
+            };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: location,
+                zoom: 15
+            });
+
+            new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Specified Location"
+            });
+        }
+
+        document.getElementById('mapModal').addEventListener('shown.bs.modal', function() {
+            initMap();
+        });
+    </script>
+
+
 
     @include('layouts.footer')

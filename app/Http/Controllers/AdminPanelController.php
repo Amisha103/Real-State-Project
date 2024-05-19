@@ -38,7 +38,7 @@ class AdminPanelController extends Controller
     public function AddBlog(Request $request)
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:8048',
             'title' => 'required|string',
             'content' => 'required|string',
         ]);
