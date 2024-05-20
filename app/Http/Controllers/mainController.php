@@ -8,18 +8,49 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Purchase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class mainController extends Controller
 {
     public function registerUser(Request $data)
     {
+        // Validation rules
+        $rules = [
+            'fullname' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+        ];
+
+        // Validation messages
+        $messages = [
+            'fullname.required' => 'Fullname is required.',
+            'fullname.unique' => 'This fullname is already taken.',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Invalid email format.',
+            'email.unique' => 'This email is already taken.',
+            'password.required' => 'Password is required.',
+        ];
+
+        // Validate input
+        $validator = Validator::make($data->all(), $rules, $messages);
+
+        // Check validation results
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Create new user
         $newUser = new User();
         $newUser->fullname = $data->input('fullname');
         $newUser->email = $data->input('email');
         $newUser->password = $data->input('password');
         $newUser->type = "Customer";
 
-        if ($newUser->save()) return redirect('/login-user')->with('success', 'Your account is ready!');
+        if ($newUser->save()) {
+            return redirect('/login-user')->with('success', 'Your account is ready!');
+        } else {
+            return redirect()->back()->with('error', 'Failed to create user account. Please try again.');
+        }
     }
 
     public function loginUser(Request $request)
@@ -146,8 +177,6 @@ class mainController extends Controller
         return redirect()->back()->with('success', 'Quantity updated successfully');
     }
 
-
-
     public function clearCart()
     {
         $customerId = session()->get('id');
@@ -160,7 +189,6 @@ class mainController extends Controller
             return redirect()->back()->with('fail', 'Your cart is already empty!');
         }
     }
-
 
     public function PurchaseButton($id)
     {

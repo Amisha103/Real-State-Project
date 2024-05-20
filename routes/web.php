@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\getAvailableController;
 use App\Http\Controllers\FlatForSaleController;
 use App\Http\Controllers\LandForSaleController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\mainController;
 use App\Http\Middleware\AdminCheckMiddleware;
 use App\Http\Middleware\CheckCustomerType;
@@ -94,3 +95,7 @@ Route::put('/updateLand/{id}', [LandForSaleController::class, 'updateLand'])->na
 
 Route::get('/purchase-details-admin', [AdminPanelController::class, 'purchaseDetailsAdmin'])->name('purchaseDetailsAdmin');
 Route::get('/deleted-purchase-from-admin/{id}', [AdminPanelController::class, 'deletedPurchaseAdmin'])->name('deletedPurchaseAdmin');
+
+Route::get('/location-admin-home', [LocationController::class, 'index'])->name('location.admin_home');
+Route::put('/locations-update/{id}', [LocationController::class, 'update'])->name('locations.update');
+Route::get('/locations/data', [LocationController::class, 'getLocationData'])->name('locations.data');

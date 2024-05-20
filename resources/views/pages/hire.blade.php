@@ -265,7 +265,7 @@
     </div>
 
 
-    <script>
+    {{-- <script>
         let map;
 
         function initMap() {
@@ -289,7 +289,41 @@
         document.getElementById('mapModal').addEventListener('shown.bs.modal', function() {
             initMap();
         });
+    </script> --}}
+
+    <script>
+        let map;
+
+        function initMap(lat, lng) {
+            const location = {
+                lat: parseFloat(lat),
+                lng: parseFloat(lng)
+            };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: location,
+                zoom: 15
+            });
+
+            new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Specified Location"
+            });
+        }
+
+        document.getElementById('mapModal').addEventListener('shown.bs.modal', function() {
+            fetch("{{ route('locations.data') }}")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        initMap(data[0].latitude, data[0].longitude);
+                    }
+                })
+                .catch(error => console.error('Error fetching location data:', error));
+        });
     </script>
+
 
 
 

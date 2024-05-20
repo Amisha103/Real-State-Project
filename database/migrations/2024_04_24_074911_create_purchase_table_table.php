@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('purchase_table', function (Blueprint $table) {
             $table->id();
             $table->integer('productId');
-            $table->integer('customerId');
+            $table->foreign('customerId')->references('id')->on('users')->onDelete('cascade');
             $table->integer('quantity');
             $table->string('address');
             $table->date('date');

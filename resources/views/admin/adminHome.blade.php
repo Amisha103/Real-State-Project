@@ -182,6 +182,14 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/location-admin-home">Location Update</a></h5>
+                        <p class="card-text">From here you can update your current office address</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     @include('layouts.footer')

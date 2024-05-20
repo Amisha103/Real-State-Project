@@ -14,25 +14,62 @@ class ContactController extends Controller
         return view('admin.adminContact', compact('contacts'));
     }
 
+    // public function addinfo(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:50',
+    //         'email' => 'required|email|max:50',
+    //         'message' => 'required|string|max:100',
+    //     ]);
+
+    //     // Create a new instance of ContactInfo model and fill it with the form data
+    //     $contactInfo = new Contact();
+    //     $contactInfo->name = $request->input('name');
+    //     $contactInfo->email = $request->input('email');
+    //     $contactInfo->message = $request->input('message');
+    //     $contactInfo->customerId = session()->get('id');
+
+    //     $contactInfo->save();
+
+    //     return redirect()->back()->with('success', 'Message sent successfully. We will reach you soon.');
+    // }
+    // public function addinfo(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:50',
+    //         'email' => 'required|email|max:50',
+    //         'message' => 'required|string|max:100',
+    //     ]);
+
+    //     $contactInfo = new Contact();
+    //     $contactInfo->name = $request->input('name');
+    //     $contactInfo->email = $request->input('email');
+    //     $contactInfo->message = $request->input('message');
+    //     $contactInfo->customer_id = session()->get('id');
+    //     $contactInfo->save();
+
+    //     return redirect()->back()->with('success', 'Message sent successfully. We will reach you soon.');
+    // }
+
     public function addinfo(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string|max:250',
+            'name' => 'required|string|max:50',
+            'email' => 'required|email|max:50',
+            'message' => 'required|string|max:100',
         ]);
 
-        // Create a new instance of ContactInfo model and fill it with the form data
         $contactInfo = new Contact();
         $contactInfo->name = $request->input('name');
         $contactInfo->email = $request->input('email');
         $contactInfo->message = $request->input('message');
-        $contactInfo->customerId = session()->get('id');
+        $contactInfo->user_id = session()->get('id');
 
         $contactInfo->save();
 
         return redirect()->back()->with('success', 'Message sent successfully. We will reach you soon.');
     }
+
 
     public function delete($id)
     {

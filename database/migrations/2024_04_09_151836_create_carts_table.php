@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('quantity')->default(0);
             $table->string('type');
             $table->string('address');
-            $table->integer('customerId')->default(0);
+            $table->foreign('customerId')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
