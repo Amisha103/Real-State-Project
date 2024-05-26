@@ -89,7 +89,7 @@
     /* -----------------footer part ends----------------------------- */
     /* -----------------post div part starts-------------------------- */
     .add_sales_div {
-        padding-top: 86px;
+        padding-top: 20px;
     }
 
     /* -----------------post div part ends---------------------------- */
@@ -98,7 +98,7 @@
 <body>
 
     <div class="add_sales_div text-white container">
-        @include("layouts.navbar")
+        {{-- @include("layouts.navbar") --}}
         <h1 class="text-center mt-3">Add Sales Data</h1>
         @if(session()->has('success'))
         <div class="alert alert-success">

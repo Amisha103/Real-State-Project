@@ -94,6 +94,6 @@ class getAvailableController extends Controller
         $data->address = $request->input('address');
         $data->mobile_number = $request->input('mobile_number');
         $data->save();
-        return redirect('/all-property-admin')->with('success', 'Data updated successfully');
+        return redirect('/available-sale-admin')->with('success', 'Data updated successfully');
     }
 }
