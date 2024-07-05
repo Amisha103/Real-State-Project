@@ -1,6 +1,6 @@
 <h1>Topkapi Builders</h1>
 <p>
-    A comprehensive real estate company named Tpkapi Builders website is designed to facilitate the buying and renting of properties including land and flats. Our website provides a seamless experience for users looking to explore property options, make purchases, and hire services. One can Hire the company to develop their properties.
+    A comprehensive real estate company named Topkapi Builders website is designed to facilitate the buying and renting of properties including land and flats. Our website provides a seamless experience for users looking to explore property options, make purchases, and hire services. One can Hire the company to develop their properties.
 </p>
 
 ![Home Page](https://github.com/AHMED-SAFA/Topkapi-Builders/blob/master/topkapi%20images/Screenshot%20(152).png)
