@@ -34,6 +34,7 @@
         </li>
         <li>HTML-5</li>
         <li>CSS</li>
+        <li>Javascript</li>
         <li>MySQL Database</li>
         <li>Bootstrap</li>
         <li>XAMPP</li>
