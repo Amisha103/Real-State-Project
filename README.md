@@ -1,11 +1,11 @@
-<h1>Topkapi Builders</h1>
-<p>
+<h1 align="center">Topkapi Builders</h1>
+<p align="center">
     A comprehensive real estate company named Topkapi Builders website is designed to facilitate the buying and renting of properties including land and flats. Our website provides a seamless experience for users looking to explore property options, make purchases, and hire services. One can Hire us to develop their properties.
 </p>
 
 ![Home Page](https://github.com/AHMED-SAFA/Topkapi-Builders/blob/master/topkapi%20images/Screenshot%20(152).png)
     
-<h2>▶️ Features</h2>
+<h2>Features</h2>
 <ul>
         <li><strong>View Available Properties</strong></li>
         <li><strong>See companies developed lands and flats</strong></li>
@@ -19,7 +19,7 @@
         <li><strong>Admin Operations</strong></li>
 </ul>
     
-<h2>▶️ Technologies Used</h2>
+<h2>Technologies Used</h2>
 <ul>
         <li>PHP</li>
         <li> 
@@ -40,7 +40,7 @@
         <li>XAMPP</li>
 </ul>
 
-<h2>▶️ Explaining features</h2>
+<h2>Explaining features</h2>
       
 <details>
 <summary>
@@ -183,7 +183,7 @@ One can view their head office location on the map also.
         
 
 
-<h2>▶️ Getting Started</h2>
+<h2>Installation</h2>
 <ol>
         <li>Clone the repository:
             <pre><code>git clone https://github.com/AHMED-SAFA/Topkapi-Builders.git</code></pre>
@@ -207,7 +207,7 @@ One can view their head office location on the map also.
         <li>Visit the site</li>
 </ol>
     
-<h2>▶️ Contributing</h2>
+<h2>Contributing</h2>
 <p>We welcome contributions to improve Topkapi Builders. Please follow these steps to contribute:</p>
 <ol>
         <li>Fork the repository.</li>
@@ -224,8 +224,8 @@ One can view their head office location on the map also.
 </ol>
     
    
-<h2>▶️ Contact</h2>
-<p>For any inquiries or support, please contact me at
+<h2>Contact</h2>
+<p>For any inquiries or support, contact me at
     <pre><code>ahmedsafa0759@gmail.com</code></pre> or
     <pre><code>safa2007114@stud.kuet.ac.bd</code></pre>
 </p>
