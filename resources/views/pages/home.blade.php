@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <link rel="stylesheet" href="{{ config('app_url') }}/css/home.css"> --}}
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('short_icon/short-icon.png') }}">
-    <title>Toplkapi Builders-TPB</title>
+    <title>Sky Livings</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -187,9 +187,9 @@
             <div class="d-flex flex-column justify-content-between h-100">
                 <div>
                     <h1 class="p-3 fs-16">About Us</h1>
-                    <h2 class="p-3">Topkapi Builders ensures innovative, trusted, luxurious.
+                    <h2 class="p-3">Sky Living ensures innovative, trusted, luxurious.
                         excellence in design, integrity
-                        in service, setting new industry standards on your property.
+                        in service, setting new standards on your property.
                         You can also buy and review your property with us.
                     </h2>
                     <div class="container-fluid contact">

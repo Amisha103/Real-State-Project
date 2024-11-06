@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('purchase_table', function (Blueprint $table) {
             $table->id();
-            $table->integer('productId');
-            $table->foreign('customerId')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('productId');
             $table->integer('quantity');
             $table->string('address');
             $table->date('date');
             $table->timestamps();
+
+            // Foreign key on customerId
+            $table->unsignedBigInteger('customerId');
+            $table->foreign('customerId')->references('customerId')->on('users')->onDelete('cascade');
         });
     }
 

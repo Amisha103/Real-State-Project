@@ -1,7 +1,7 @@
 <nav class="container-fluid fixed-top border-secondary border p-3 col-11 rounded mt-2 navbar navbar-expand-lg navbar-dark shadow">
     <div class="container-fluid">
 
-        <a class="navbar-brand tpb" href="/">Topkapi Builders</a>
+        <a class="navbar-brand tpb" href="/">Sky Livings</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

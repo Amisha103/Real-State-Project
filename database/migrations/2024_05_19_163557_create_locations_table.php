@@ -13,11 +13,15 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string("latitude");
-            $table->string("longitude");
-            $table->foreign('admin_id')->references('id')->on('admin_users')->onDelete('cascade');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->timestamps();
+
+            // Foreign key on admin_id
+            $table->unsignedBigInteger('admin_id'); // Foreign key column
+            $table->foreign('admin_id')->references('id')->on('admin_users')->onDelete('cascade');
         });
+
     }
 
     /**

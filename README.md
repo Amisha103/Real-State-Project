@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 align="center">Topkapi Builders</h1>
 <p align="center">
     A comprehensive real estate company named Topkapi Builders website is designed to facilitate the buying and renting of properties including land and flats. Our website provides a seamless experience for users looking to explore property options, make purchases, and hire services. One can Hire us to develop their properties.
@@ -231,3 +232,6 @@ One can view their head office location on the map also.
 </p>
 
 
+=======
+# Real-State-Project
+>>>>>>> bc6faa0ce83fbf2b3158ccacf9ed5196495898ff

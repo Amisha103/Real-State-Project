@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('productId')->default(0);
+            $table->unsignedBigInteger('productId')->default(0);
             $table->integer('quantity')->default(0);
             $table->string('type');
             $table->string('address');
-            $table->foreign('customerId')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+
+            // Assuming 'id' from users table is the correct foreign key
+            $table->unsignedBigInteger('user_id'); // Add the user_id field
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+
     }
 
     /**

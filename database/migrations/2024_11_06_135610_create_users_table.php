@@ -9,15 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function down(): void
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('fullname')->nullable();
+            $table->string('name');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('type')->default("Customer");
-            $table->unsignedBigInteger('customerId')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -26,10 +26,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function up(): void
-    {  Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('fullname');
-    });
+    public function down(): void
+    {
         Schema::dropIfExists('users');
     }
 };

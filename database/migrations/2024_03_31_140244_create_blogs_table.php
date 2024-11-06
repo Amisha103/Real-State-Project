@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('content');
             // $table->string('customerId');
-            $table->foreign('customerId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('customerId')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
